@@ -38,6 +38,7 @@ function draw() {
         rotate(angle);
         let sw = sizeSlider.value();
         strokeWeight(sw);
+        circle(mx, my, random(1,5));
 
         line(mx, my, pmx, pmy);
         push();
