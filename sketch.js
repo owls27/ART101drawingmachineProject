@@ -14,10 +14,6 @@ function setup() {
   sizeSlider = createSlider(1, 32, 4, 0.1);
 }
 
-function clearScreen() {
-  background(255);
-}
-
 function draw() {
 
   if (mouseIsPressed) {
