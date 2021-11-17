@@ -8,6 +8,7 @@ let slider;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(backgroundColor);
+  //change range to degree
   angleMode(DEGREES);
 
   brushSizeSlider = createButton('Brush Size Slider');
@@ -17,6 +18,7 @@ function setup() {
 function draw() {
 
   if (mouseIsPressed) {
+    //center movement
     translate(width / 2, height / 2);
     if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
       let mx = mouseX - width / 2;
@@ -30,6 +32,7 @@ function draw() {
       let b = random(0, 255);
       let c = random(0, 255);
       fill(a, b, c);
+      circle(mx, my, random(1, 5));
       strokeWeight(w);
       stroke(0, 100);
       //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
@@ -38,7 +41,7 @@ function draw() {
         rotate(angle);
         let sw = sizeSlider.value();
         strokeWeight(sw);
-        circle(mx, my, random(1,5));
+
 
         line(mx, my, pmx, pmy);
         push();
@@ -56,14 +59,15 @@ function draw() {
     }
   }
 }
-    function keyTyped() {
-      if (key === 's') {
-        //save this image
-        saveCanvas('fileName', 'png');
-      } else if (key === 'd') {
-        array.push([mouseX, mouseY]);
-        clear();
-        background(random(0,255), random(0,255), random(0,255));
-      }
 
-    }
+function keyTyped() {
+  if (key === 's') {
+    //save this image
+    saveCanvas('fileName', 'png');
+  } else if (key === 'd') {
+    array.push([mouseX, mouseY]);
+    clear();
+    background(random(0, 255), random(0, 255), random(0, 255));
+  }
+
+}
