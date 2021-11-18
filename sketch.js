@@ -6,7 +6,7 @@ let angle = 360 / symmetry;
 let slider;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1200, 1200);
   background(backgroundColor);
   //change range to degree
   angleMode(DEGREES);
@@ -37,7 +37,7 @@ function draw() {
       strokeWeight(w);
       stroke(0, 100);
       //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-      stroke(map(mouseX, 0, 600, 0, 255, true));
+      //stroke(map(mouseX, 0, 600, 0, 255, true));
       for (let i = 0; i < symmetry; i++) {
         rotate(angle);
         let sw = sizeSlider.value();
