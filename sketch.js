@@ -4,6 +4,9 @@ let array = [];
 let symmetry = 12;
 let angle = 360 / symmetry;
 let slider;
+let a = 0;
+let b = 0;
+let c = 0;
 
 function setup() {
   createCanvas(1200, 1200);
@@ -28,14 +31,9 @@ function draw() {
 
       var w = random(1, 50);
 
-      let a = random(0, 255);
-      let b = random(0, 255);
-      let c = random(0, 255);
-
-      fill(a, b, c);
       circle(mx, my, random(1, 5));
       strokeWeight(w);
-      stroke(0, 100);
+      stroke(a, b, c);
       //line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
       //stroke(map(mouseX, 0, 600, 0, 255, true));
       for (let i = 0; i < symmetry; i++) {
@@ -43,19 +41,18 @@ function draw() {
         let sw = sizeSlider.value();
         strokeWeight(sw);
 
-
         line(mx, my, pmx, pmy);
         push();
         scale(1, -1);
         line(mx, my, pmx, pmy);
         pop();
-        beginShape();
-
-        for (let i = 0; i < array.length - 1; i++) {
-          curveVertex(array[i][0], array[i][1]);
-          line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
-        }
-        endShape();
+        // beginShape();
+        //
+        // for (let i = 0; i < array.length - 1; i++) {
+        //   curveVertex(array[i][0], array[i][1]);
+        //   line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+        // }
+        // endShape();
       }
       return false;
     }
@@ -67,9 +64,12 @@ function keyTyped() {
     //save this image
     saveCanvas('fileName', 'png');
   } else if (key === 'd') {
+    a = random(0, 255);
+    b = random(0, 255);
+    c = random(0, 255);
     array.push([mouseX, mouseY]);
     clear();
-    background(random(0, 255), random(0, 255), random(0, 255));
+
   }
 
 }
